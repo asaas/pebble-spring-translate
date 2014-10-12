@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- The Basics -->
+
+	<groupId>com.asaas</groupId>
+	<artifactId>pebble-spring-translate</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.mitchellbosecke</groupId>
+			<artifactId>pebble</artifactId>
+			<version>${pebble.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mitchellbosecke</groupId>
+			<artifactId>pebble-spring3</artifactId>
+			<version>${pebble.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<pebble.version>1.1.1-SNAPSHOT</pebble.version>
+		<spring.version>4.1.1.RELEASE</spring.version>
+		<testng.version>6.8.8</testng.version>
+	</properties>
+
+	<!-- Build Settings -->
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- More Project Information -->
+
+	<name>Pebble Spring Translate Extenstion</name>
+	<description>
+		Translation extension for Pebble template engine, which
+		use Spring messages interface
+	</description>
+	<url>https://github.com/asaas/pebble-spring-translate</url>
+	<inceptionYear>2014</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>New BSD License</name>
+			<url>http://opensource.org/licenses/BSD-3-Clause</url>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>Accounting SaaS Japan</name>
+	</organization>
+
+	<developers>
+		<developer>
+			<name>Ushakov Vasilii</name>
+			<email>UshakovVasilii_Github@yahoo.com</email>
+		</developer>
+	</developers>
+
+	<!-- Environment Settings -->
+
+	<scm>
+		<connection>
+			scm:git@github.com:asaas/pebble-spring-translate.git
+		</connection>
+		<developerConnection>
+			scm:git@github.com:asaas/pebble-spring-translate.git
+		</developerConnection>
+		<url>git@github.com:asaas/pebble-spring-translate.git</url>
+	</scm>
+
+</project>
+
