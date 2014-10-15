@@ -13,6 +13,10 @@ Function support ["layzy" lookup](http://guides.rubyonrails.org/i18n.html#lazy-l
 ```jinja
 {{ t('.title') }}
 ```
+Example with arguments:
+```jinja
+{{ t('.title', 'arg1', 'arg2', 'arg3') }}
+```
 
 # Setup
 
