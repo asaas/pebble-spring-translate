@@ -7,6 +7,9 @@ import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 
 import com.asaas.pebble.spring.translate.conf.TestConfig;
@@ -15,6 +18,9 @@ import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
 
 @ContextConfiguration(classes = TestConfig.class)
+// override listeners to ignore ServletTestExecutionListener
+@TestExecutionListeners(inheritListeners = false, value = { DependencyInjectionTestExecutionListener.class,
+        DirtiesContextTestExecutionListener.class })
 public abstract class AbstractTest extends AbstractTestNGSpringContextTests {
 
     @Autowired

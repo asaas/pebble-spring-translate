@@ -17,17 +17,18 @@
 			<version>${pebble.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.mitchellbosecke</groupId>
-			<artifactId>pebble-spring3</artifactId>
-			<version>${pebble.version}</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>com.mitchellbosecke</groupId>
+			<artifactId>pebble-spring3</artifactId>
+			<version>${pebble.version}</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -61,6 +62,32 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -97,10 +124,10 @@
 
 	<scm>
 		<connection>
-			scm:git@github.com:asaas/pebble-spring-translate.git
+			scm:git:git@github.com:asaas/pebble-spring-translate.git
 		</connection>
 		<developerConnection>
-			scm:git@github.com:asaas/pebble-spring-translate.git
+			scm:git:git@github.com:asaas/pebble-spring-translate.git
 		</developerConnection>
 		<url>git@github.com:asaas/pebble-spring-translate.git</url>
 	</scm>
