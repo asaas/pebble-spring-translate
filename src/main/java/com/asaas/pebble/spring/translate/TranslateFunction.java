@@ -70,10 +70,12 @@ public class TranslateFunction implements Function {
         Assert.notNull(messageKey, "Message key is required");
 
         if (messageKey.charAt(0) == '.') {
-            PebbleTemplateImpl template = (PebbleTemplateImpl) args.get("_self");
-            messageKey = String.join(".", template.getName().split("/")) + messageKey;
+            PebbleTemplateImpl template = (PebbleTemplateImpl) args
+                    .get("_self");
+            messageKey = template.getName().replace('/', '.') + messageKey;
         }
 
-        return messageSource.getMessage(messageKey, messageArgs.toArray(), context.getLocale());
+        return messageSource.getMessage(messageKey, messageArgs.toArray(),
+                context.getLocale());
     }
 }
