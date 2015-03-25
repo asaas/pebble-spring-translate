@@ -26,4 +26,14 @@ public class TemplateNameLookUpTest extends AbstractTest {
         assertEquals(output, "Look up in (Arg1, Arg2)");
     }
 
+    public void testPrivateLazyLookUpInFolder() {
+        String output = loadTemplate("folder/_private_look_up_in_folder");
+        assertEquals(output, "Private look up in folder");
+    }
+
+    public void testRootLazyLookUp() {
+        String output = loadTemplate("folder/root_look_up");
+        assertEquals(output, "Root look up");
+    }
+
 }

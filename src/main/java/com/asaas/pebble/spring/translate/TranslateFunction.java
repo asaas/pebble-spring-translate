@@ -54,7 +54,7 @@ public class TranslateFunction implements Function {
     public Object execute(Map<String, Object> args) {
         EvaluationContext context = (EvaluationContext) args.get("_context");
 
-        String messageKey = null;
+        String key = null;
         List<Object> messageArgs = new ArrayList<>();
 
         for (int i = 0;; i++) {
@@ -62,18 +62,25 @@ public class TranslateFunction implements Function {
             if (arg == null)
                 break;
             if (i == 0)
-                messageKey = arg.toString();
+                key = arg.toString();
             else
                 messageArgs.add(arg);
         }
 
-        Assert.notNull(messageKey, "Message key is required");
+        Assert.notNull(key, "Message key is required");
 
-        if (messageKey.charAt(0) == '.') {
-            PebbleTemplateImpl template = (PebbleTemplateImpl) args.get("_self");
-            messageKey = String.join(".", template.getName().split("/")) + messageKey;
+        if (key.charAt(0) == '.') {
+            String path = ((PebbleTemplateImpl) args.get("_self")).getName();
+            String baseKey = path.replaceAll("/_|/", ".");
+            if (key.length() > 2 && key.charAt(1) == '.') {
+                key = baseKey.replaceAll("\\.[^.]+$", "") + key.substring(1);
+            } else {
+                key = baseKey + key;
+            }
         }
 
-        return messageSource.getMessage(messageKey, messageArgs.toArray(), context.getLocale());
+        return messageSource.getMessage(key, messageArgs.toArray(),
+                context.getLocale());
     }
+
 }
