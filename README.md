@@ -6,7 +6,7 @@ Translation extension for Pebble template engine, which use Spring messages inte
 # Overview
 
 Provide the `t` function for [Pebble](http://www.mitchellbosecke.com/pebble) template engine, which retrive message from Spring MessageSource.
-```jinja
+```HTML+Django
 {{ t('users.show.title') }}
 ```
 Function support ["layzy" lookup](http://guides.rubyonrails.org/i18n.html#lazy-lookup), so you can look up message inside `users/show.html` like:
