@@ -9,12 +9,21 @@ Provide the `t` function for [Pebble](http://www.mitchellbosecke.com/pebble) tem
 ```HTML+Django
 {{ t('users.show.title') }}
 ```
-Function support ["layzy" lookup](http://guides.rubyonrails.org/i18n.html#lazy-lookup), so you can look up message inside `users/show.html` like:
-```jinja
+
+## "Lazy" Lookup
+Function support ["layzy" lookup](http://guides.rubyonrails.org/i18n.html#lazy-lookup), so you can look up `users.show.title` message inside `users/show.html` like:
+```HTML+Django
 {{ t('.title') }}
 ```
-Example with arguments:
-```jinja
+
+## "Lazy" Lookup without template name
+You can look up `users.my_message` message inside `users/show.html` like:
+```HTML+Django
+{{ t('..my_message') }}
+```
+
+## Arguments:
+```HTML+Django
 {{ t('.title', 'arg1', 'arg2', 'arg3') }}
 ```
 
@@ -22,6 +31,10 @@ Example with arguments:
 
 You need add extension to Pabble engine and provide Spring MessageSource:
 ```java
+
+@Autowired
+private ServletContext context;
+
 @Bean  
 public MessageSource messageSource() {  
     ResourceBundleMessageSource ms = new ResourceBundleMessageSource();  
@@ -30,13 +43,8 @@ public MessageSource messageSource() {
 }  
 
 @Bean
-public Loader templateLoader() {
-    return new PebbleTemplateLoader();
-}
-
-@Bean
 public PebbleEngine pebbleEngine() {
-    PebbleEngine pe = new PebbleEngine(templateLoader());
+    PebbleEngine pe = new PebbleEngine(new ServletLoader(context));
     pe.addExtension(new TranslateExtension(messageSource()));
     return pe;
 }
