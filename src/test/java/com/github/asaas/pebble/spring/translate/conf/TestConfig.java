@@ -1,4 +1,4 @@
-package com.asaas.pebble.spring.translate.conf;
+package com.github.asaas.pebble.spring.translate.conf;
 
 import java.util.Locale;
 
@@ -7,7 +7,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
-import com.asaas.pebble.spring.translate.TranslateExtension;
+import com.github.asaas.pebble.spring.translate.TranslateExtension;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.loader.Loader;
 

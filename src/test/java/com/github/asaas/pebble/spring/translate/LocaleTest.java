@@ -1,4 +1,4 @@
-package com.asaas.pebble.spring.translate;
+package com.github.asaas.pebble.spring.translate;
 
 import static org.testng.Assert.assertEquals;
 
@@ -7,7 +7,7 @@ import java.util.Locale;
 import org.springframework.test.context.ContextConfiguration;
 import org.testng.annotations.Test;
 
-import com.asaas.pebble.spring.translate.conf.StringLoaderTestConfig;
+import com.github.asaas.pebble.spring.translate.conf.StringLoaderTestConfig;
 
 @Test
 @ContextConfiguration(classes = StringLoaderTestConfig.class)

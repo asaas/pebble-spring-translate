@@ -1,4 +1,4 @@
-package com.asaas.pebble.spring.translate;
+package com.github.asaas.pebble.spring.translate;
 
 import java.util.ArrayList;
 import java.util.List;

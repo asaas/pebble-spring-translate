@@ -1,4 +1,4 @@
-package com.asaas.pebble.spring.translate;
+package com.github.asaas.pebble.spring.translate;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -12,7 +12,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 
-import com.asaas.pebble.spring.translate.conf.TestConfig;
+import com.github.asaas.pebble.spring.translate.conf.TestConfig;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;

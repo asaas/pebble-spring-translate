@@ -1,4 +1,4 @@
-package com.asaas.pebble.spring.translate.conf;
+package com.github.asaas.pebble.spring.translate.conf;
 
 import org.springframework.context.annotation.Bean;
 
